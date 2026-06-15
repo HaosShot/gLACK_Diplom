@@ -1,0 +1,32 @@
+# GLACK — desktop AI assistant
+# Python 3.10+ recommended
+
+# Core LLM client
+ollama>=0.3.0
+
+# Speech recognition (OpenAI Whisper)
+openai-whisper>=20231117
+
+# Audio recording
+sounddevice>=0.4.6
+numpy>=1.24.0
+
+# GUI
+# tkinter is included with Python on Windows/macOS; on Linux install python3-tk
+
+# Desktop automation
+pyautogui>=0.9.54
+pyperclip>=1.8.2
+pygetwindow>=0.0.9
+
+# Screenshots
+mss>=9.0.0
+Pillow>=10.0.0
+
+# System / utilities
+psutil>=5.9.0
+requests>=2.31.0
+
+# Optional: faster Whisper inference on CPU/GPU
+# torch>=2.0.0
+# torchvision>=0.15.0
