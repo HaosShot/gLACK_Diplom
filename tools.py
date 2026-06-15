@@ -17,7 +17,7 @@ from PIL import Image
 from urllib.parse import quote_plus
 from config import PLATFORM, VISION_MODEL
 
-pyautogui.FAILSAFE = False
+pyautogui.FAILSAFE = True
 
 _log = print
 

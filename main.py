@@ -34,6 +34,15 @@ cc.set_logger(log)
 
 def start_ollama():
     try:
+        # Проверяем, доступна ли Ollama уже
+        import urllib.request
+        urllib.request.urlopen("http://localhost:11434", timeout=1)
+        log("ollama уже запущена", "ok")
+        return
+    except Exception:
+        pass
+
+    try:
         subprocess.Popen(
             ["ollama", "serve"],
             stdout=subprocess.DEVNULL,
