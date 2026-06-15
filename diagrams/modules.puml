@@ -1,0 +1,27 @@
+@startuml
+package "GLACK" {
+    [main.py] as Main
+    [agent.py] as Agent
+    [tools.py] as Tools
+    [custom_commands.py] as CC
+    [config.py] as Config
+}
+
+package "Внешние библиотеки" {
+    [Ollama] as Ollama
+    [PyAutoGUI] as PyAutoGUI
+    [MSS] as MSS
+    [Requests] as Requests
+    [LLaVA] as LLaVA
+}
+
+Main --> Agent
+Main --> Tools
+Main --> CC
+Main --> Config
+Agent --> Ollama
+Tools --> PyAutoGUI
+Tools --> MSS
+Tools --> Requests
+Tools --> LLaVA
+@enduml

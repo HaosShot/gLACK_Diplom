@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Пользователь" as User
+
+rectangle "GLACK" {
+    usecase "Голосовой ввод" as UC1
+    usecase "Текстовый ввод" as UC2
+    usecase "Управление браузером" as UC3
+    usecase "Управление окнами" as UC4
+    usecase "Работа с мышью" as UC5
+    usecase "Работа с клавиатурой" as UC6
+    usecase "Создание своих команд" as UC7
+    usecase "Анализ экрана" as UC8
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+@enduml

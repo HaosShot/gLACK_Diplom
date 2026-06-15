@@ -1,0 +1,19 @@
+@startuml
+!define RECTANGLE class
+
+RECTANGLE "Пользователь" as User
+RECTANGLE "Whisper" as Whisper
+RECTANGLE "Agent" as Agent
+RECTANGLE "Ollama/Qwen" as LLM
+RECTANGLE "Custom Commands" as CC
+RECTANGLE "Tools" as Tools
+RECTANGLE "Windows / Linux" as OS
+
+User --> Whisper : Голосовая команда
+Whisper --> Agent : Текст
+CC --> Agent : Триггеры
+Agent --> LLM : Запрос
+LLM --> Agent : JSON-инструкция
+Agent --> Tools : Вызов инструмента
+Tools --> OS : Системное действие
+@enduml

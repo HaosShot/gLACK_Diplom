@@ -1,0 +1,19 @@
+@startuml
+start
+:Запись голоса (5 с);
+:Распознавание Whisper;
+if (Текст получен?) then (Нет)
+    :Завершение;
+    stop
+else (Да)
+    :Проверка custom_commands;
+    if (Есть команда?) then (Да)
+        :Выполнить команду из custom_commands;
+    else (Нет)
+        :Отправить запрос агенту;
+        :Получить JSON от LLM;
+        :Выполнить tool;
+    endif
+    stop
+endif
+@enduml

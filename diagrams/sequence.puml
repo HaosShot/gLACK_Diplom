@@ -1,0 +1,23 @@
+@startuml
+actor "Пользователь" as User
+participant "Whisper" as Whisper
+participant "Agent" as Agent
+participant "Ollama/Qwen" as LLM
+participant "Tools" as Tools
+participant "ОС" as OS
+
+User -> Whisper: Голосовая команда
+Whisper -> Agent: Текст
+Agent -> Agent: Проверка custom_commands
+alt Команда найдена
+    Agent -> Tools: Вызов инструмента
+    Tools -> OS: Выполнение действия
+else Команда не найдена
+    Agent -> LLM: Запрос с текстом
+    LLM --> Agent: JSON-команда
+    Agent -> Tools: Вызов инструмента
+    Tools -> OS: Выполнение действия
+end
+Tools --> Agent: Результат
+Agent --> User: Результат
+@enduml

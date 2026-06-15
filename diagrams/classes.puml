@@ -1,0 +1,38 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class GlackUI {
+    + whisper
+    + append_log(line, level)
+    + set_status(text)
+    + set_mic_active(active)
+    - _voice_once()
+}
+
+class Agent {
+    - history
+    + think(user_text)
+    + reset()
+}
+
+class Tools {
+    + {static} open_browser()
+    + {static} google_search(args)
+    + {static} type_text(args)
+    + {static} mouse_click()
+    + {static} analyze_screen(args)
+}
+
+class CustomCommands {
+    + load_commands()
+    + save_commands(commands)
+    + add_command(trigger, action, value, description)
+    + delete_command(trigger)
+    + try_execute(text)
+}
+
+GlackUI --> Agent : передаёт текст
+GlackUI --> CustomCommands : управление командами
+Agent --> Tools : вызывает инструмент
+Agent --> CustomCommands : проверяет триггеры
+@enduml
